@@ -45,5 +45,5 @@ Prediction: The trained model forecasts AQI in real-time.
 
 - Adding advanced deep learning models for better accuracy.
 - Expanding the dataset to include global air quality data.
-- Creating APIs for real-time integration with mobile and web applications.
+- Creating APIs for real-time integration with mobile applications.
 
