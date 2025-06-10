@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Quality Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Styling for chatbot icon and message */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            text-align: center;
+        }
+
+        .chatbot-icon {
+            background-color: #201f78;
+            border-radius: 50%;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            color: white;
+            font-size: 1.5em;
+            transition: background-color 0.3s ease;
+        }
+
+        .chatbot-icon:hover {
+            background-color: #184789;
+        }
+
+        .chatbot-text {
+            color: #201f78;
+            font-size: 1.1em;
+            margin-top: 5px;
+        }
+
+        /* Form and other existing styles */
+        iframe {
+            border: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Air Quality Index (AQI) Prediction</h1>
+            <p>Enter the following details to predict the AQI</p>
+        </header>
+        
+        <form action="/predict" method="POST">
+            <div class="input-field">
+                <label for="T"><i class="fas fa-thermometer-half"></i> Temperature (°C)</label>
+                <input type="number" id="T" name="T" step="any" required>
+            </div>
+            
+            <div class="input-field">
+                <label for="TM"><i class="fas fa-temperature-high"></i> Max Temperature (°C)</label>
+                <input type="number" id="TM" name="TM" step="any" required>
+            </div>
+            
+            <div class="input-field">
+                <label for="Tm"><i class="fas fa-temperature-low"></i> Min Temperature (°C)</label>
+                <input type="number" id="Tm" name="Tm" step="any" required>
+            </div>
+            
+            <div class="input-field">
+                <label for="SLP"><i class="fas fa-cloud-sun"></i> Sea Level Pressure (hPa)</label>
+                <input type="number" id="SLP" name="SLP" step="any" required>
+            </div>
+            
+            <div class="input-field">
+                <label for="H"><i class="fas fa-tint"></i> Humidity (%)</label>
+                <input type="number" id="H" name="H" step="any" required>
+            </div>
+            
+            <div class="input-field">
+                <label for="VV"><i class="fas fa-eye"></i> Visibility (km)</label>
+                <input type="number" id="VV" name="VV" step="any" required>
+            </div>
+            
+            <div class="input-field">
+                <label for="V"><i class="fas fa-wind"></i> Wind Speed (km/h)</label>
+                <input type="number" id="V" name="V" step="any" required>
+            </div>
+            
+            <div class="input-field">
+                <label for="VM"><i class="fas fa-wind"></i> Max Wind Speed (km/h)</label>
+                <input type="number" id="VM" name="VM" step="any" required>
+            </div>
+            
+            <button type="submit">Predict AQI</button>
+        </form>
+    </div>
+
+    <!-- Chatbot Icon and Text -->
+    <div class="chatbot-container">
+        <div class="chatbot-icon" onclick="window.open('https://bot.dialogflow.com/eb61c9ba-5ef4-4a5c-8c39-c08bcb8fe9b9', '_blank')">
+            <i class="fas fa-comments"></i>
+        </div>
+        <div class="chatbot-text">Hey, I'm your chatbot!</div>
+    </div>
+</body>
+</html>

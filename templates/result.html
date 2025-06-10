@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AQI Prediction Result</h1>
+        </header>
+        
+        <div class="result">
+            <h2>Predicted AQI: {{ prediction }}</h2>
+            <p>The predicted Air Quality Index (AQI) based on the values you provided is shown above.</p>
+            <a href="/">Go back and enter new values</a>
+        </div>
+    </div>
+</body>
+</html>
